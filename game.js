@@ -20,7 +20,7 @@ let scoreData = document.getElementById("score");
 
 // configure apple
 const textureA = await PIXI.Assets.load("apple.png");
-const texturebomb = await PIXI.Assets.load("bomb_.png")
+const texturebomb = await PIXI.Assets.load("bomb_.png");
 const apple = new PIXI.Sprite(textureA);
 apple.anchor.set(0.5);
 apple.x = Math.random() * window.innerWidth;
