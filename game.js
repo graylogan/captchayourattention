@@ -8,9 +8,11 @@ document.body.appendChild(app.canvas);
 const textureB = await PIXI.Assets.load("basket.png");
 const basket = new PIXI.Sprite(textureB);
 basket.anchor.set(0.5);
-// basket.x = 300;
-// basket.y = 425;
+basket.x = window.innerWidth / 2;
+basket.y = window.innerHeight - 50;
 app.stage.addChild(basket);
+
+app.ticker.maxFPS = 24;
 
 let scoreData = document.getElementById("score");
 // scoreData.style.left = (window.innerWidth / 2) + "px";
@@ -18,7 +20,7 @@ let scoreData = document.getElementById("score");
 
 // configure apple
 const textureA = await PIXI.Assets.load("apple.png");
-const texturebomb = await PIXI.Assets.load("bomb_.png")
+const texturebomb = await PIXI.Assets.load("bomb_.png");
 const apple = new PIXI.Sprite(textureA);
 apple.anchor.set(0.5);
 apple.x = Math.random() * window.innerWidth;
@@ -33,21 +35,20 @@ while (bomb2 === bomb1) {
 }
 console.log(bomb1, bomb2);
 
-let acceleration = 0.025;
+let acceleration = 0.25;
 let velocity = 0;
 
 let currentDrop = 1;
 let score = 0;
-let gameOver = false;
 
 app.view.addEventListener('mousemove', onMouseMove);
 
-            function onMouseMove(event) {
-                // Update the position of the sprite to follow the mouse pointer
-                basket.position.set(event.clientX, window.innerHeight - 50);
-            }
+function onMouseMove(event) {
+    // Update the position of the sprite to follow the mouse pointer
+    basket.position.set(event.clientX, window.innerHeight - 50);
+}
 
-alert('Complete the game to login.');
+alert('Pass this test to verify you are human.');
 
 if ((currentDrop == bomb1) || (currentDrop == bomb2)){
     apple.texture = texturebomb;
@@ -77,14 +78,14 @@ app.ticker.add((time) => {
             }
     
         }
-        apple.x = Math.random() * window.innerWidth;
+        apple.x = Math.random() * (window.innerWidth - 50) + 25;
         apple.y = -25;
         velocity = 0;
         currentDrop += 1;
         if (currentDrop > 5) {
             app.ticker.stop();
             if (score > 2) {
-                alert("You got " + score);
+                // alert("You got " + score);
                 window.location.href = redir;
             }
             else {
@@ -101,7 +102,4 @@ app.ticker.add((time) => {
     }
     
 });
-if (gameOver) {
-    
-}
 })();
