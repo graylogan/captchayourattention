@@ -12,6 +12,10 @@ basket.anchor.set(0.5);
 // basket.y = 425;
 app.stage.addChild(basket);
 
+let scoreData = document.getElementById("score");
+// scoreData.style.left = (window.innerWidth / 2) + "px";
+// scoreData.style.textAnchor = "center";
+
 // configure apple
 const textureA = await PIXI.Assets.load("apple.png");
 const texturebomb = await PIXI.Assets.load("bomb_.png")
@@ -64,16 +68,19 @@ app.ticker.add((time) => {
             if ((currentDrop == bomb1) || (currentDrop == bomb2)){
                 score -= 1;
                 console.log("Oops, you caught a bomb: -1");
+                scoreData.innerHTML = "Score: " + score;
             }
             else{
                 score += 1;
                 console.log("Score: " + score);
+                scoreData.innerHTML = "Score: " + score;
             }
     
         }
         apple.x = Math.random() * window.innerWidth;
         apple.y = -25;
         velocity = 0;
+        currentDrop += 1;
         if (currentDrop > 5) {
             app.ticker.stop();
             if (score > 2) {
@@ -84,7 +91,6 @@ app.ticker.add((time) => {
                 window.location.reload();
             }
         }
-        currentDrop += 1;
         if ((currentDrop == bomb1) || (currentDrop == bomb2)){
             apple.texture = texturebomb;
         }
