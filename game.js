@@ -84,7 +84,7 @@ app.ticker.add((time) => {
         currentDrop += 1;
         if (currentDrop > 5) {
             app.ticker.stop();
-            if (score > 2) {
+            if (score > 1) {
                 // alert("You got " + score);
                 window.location.href = redir;
             }
