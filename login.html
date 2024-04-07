@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Login</title>
+
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <form id="login" action="captcha.html">
+        <h1>Generic Login Demo</h1>
+        <!-- <h2>Please enter your username and password.</h2> -->
+        <!-- Login Data Here -->
+        <p><input id="username" type="text" placeholder="Username" autocomplete="off" required></p>
+        <p><input id="password" type="password" placeholder="Password" autocomplete="off" minlength="1" maxlength="1000" required></p>
+        <p><button id="submit" type="submit" class="submit" onsubmit="login()" >Login</button></p>
+    </form>
+</body>
+    <script src="login.js"></script>
+</html>
