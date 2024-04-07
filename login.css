@@ -94,3 +94,15 @@ form p button.submit {
     height: 40px;
     margin: 25px auto;
 }
+
+h1.score {
+    z-index: 1; 
+    text-align: center; 
+    position: absolute; 
+    top: -10px; left: 20px; 
+    text-anchor: middle; 
+    color: black; 
+    background-color: white; 
+    padding: 15px; 
+    border-radius: 10px;
+}
